@@ -1,0 +1,30 @@
+service: service-connect-documentdb-v2
+
+frameworkVersion: '>=1.28.0 <2.0.0'
+
+provider:
+  name: aws
+  runtime: go1.x
+  vpc:
+    securityGroupIds:
+      - sg-02604dd06422288a9
+    subnetIds:
+      - subnet-01d9f2df36f6c59fd
+      - subnet-0e6583374ea2c7a41
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+    - ./cert/*
+
+functions:
+  documentv2:
+    handler: bin/v1
+    package:
+      include:
+        - ./cert/*
+    events:
+      - http:
+          path: documet
+          method: get
