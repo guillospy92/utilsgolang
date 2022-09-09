@@ -1,0 +1,21 @@
+// init proto buffers
+
+// proto c compile proto buffer
+
+// init version proto
+syntax = "proto3";
+
+package employee;
+
+option go_package = "v1/";
+
+message Employee {
+  int32 id = 1;
+  string name = 2;
+  float salary = 3;
+}
+
+message Employees {
+  // init array with repeated
+  repeated Employee employees = 1;
+}

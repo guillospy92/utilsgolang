@@ -69,11 +69,11 @@ func NewServicePurchased(response http.ResponseWriter, request *http.Request) {
 		IsRenovate:     true,
 		Status:         "active",
 		User: repositories.User{
-			Id:        234,
+			ID:        234,
 			Name:      "Guillermo",
 			Email:     "guillospy@gmail.com",
 			Address:   "call 23",
-			CellPhone: 3003001234,
+			Cellphone: "3003001234",
 		},
 		Plan: repositories.Plan{
 			Id:               primitive.NewObjectID(),
@@ -82,10 +82,6 @@ func NewServicePurchased(response http.ResponseWriter, request *http.Request) {
 			PromotionalPrice: 0,
 			Benefits:         []string{"free_delivery", "netflix"},
 			Period:           12,
-		},
-		Payment: repositories.Payment{
-			CardID:       123,
-			Installments: 2,
 		},
 	}
 
@@ -101,6 +97,7 @@ func NewServicePurchased(response http.ResponseWriter, request *http.Request) {
 }
 
 func FindServicePurchased(response http.ResponseWriter, request *http.Request) {
+	fmt.Println(1111)
 	service, err := repositories.SearchServicePurchased()
 	if err != nil {
 		response.WriteHeader(http.StatusInternalServerError)

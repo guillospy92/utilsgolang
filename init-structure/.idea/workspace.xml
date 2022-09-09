@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="03bfbea0-d067-418a-a601-861fdb4aac66" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/.idea/init-structure.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/celeritas.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/cmd/cli/copy-files.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/cmd/cli/helpers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/cmd/cli/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/cmd/cli/make.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/cmd/cli/migrate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/cmd/cli/templates/migrations/migration.postgres.down.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/cmd/cli/templates/migrations/migration.postgres.up.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/driver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/helper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/migrations.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/render/render.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/routes.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/session/session.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/celeritas/types.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/handlers/handlers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/ico/android-chrome-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/ico/android-chrome-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/ico/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/ico/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/ico/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/ico/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/ico/site.webmanifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/public/images/celeritas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/views/home.jet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/views/home.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go-version-laravel/myapp/views/layouts/base.jet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gologelastic/.idea/gologelastic.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gologelastic/loggers/logger_uber.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gologelastic/loggers/logger_uber_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gologelastic/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../large-file/controllers/upload_large.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../large-file/controllers/upload_normal.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../large-file/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../large-file/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../servicemongo/v1/repositories/service_model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../servicemongo/v1/repositories/service_purchased_model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servicemongo/v1/controller/ServiceController.go" beforeDir="false" afterPath="$PROJECT_DIR$/../servicemongo/v1/controller/ServiceController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servicemongo/v1/controller/ServiceControllerOriginal.go" beforeDir="false" afterPath="$PROJECT_DIR$/../servicemongo/v1/controller/ServiceControllerOriginal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servicemongo/v1/controller/example.go" beforeDir="false" afterPath="$PROJECT_DIR$/../servicemongo/v1/controller/example.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servicemongo/v1/mongo/connect.go" beforeDir="false" afterPath="$PROJECT_DIR$/../servicemongo/v1/mongo/connect.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servicemongo/v1/repositories/ServicePurchasedRepositoriesReal.go" beforeDir="false" afterPath="$PROJECT_DIR$/../servicemongo/v1/repositories/ServicePurchasedRepositoriesReal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servicemongo/v1/repositories/models_bson.go" beforeDir="false" afterPath="$PROJECT_DIR$/../servicemongo/v1/repositories/models_bson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servicemongo/v1/repositories/service_repositorie.go" beforeDir="false" afterPath="$PROJECT_DIR$/../servicemongo/v1/repositories/service_repositorie.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../go1.17.5" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/celeritas/types.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/celeritas/celeritas.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/myapp/Makefile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/celeritas/render/render.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/myapp/main.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/celeritas/driver.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/myapp/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/celeritas/go.mod" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/myapp/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../go-version-laravel/celeritas/middleware.go" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="24z6lkB8WM6pDF6UC7WAe16QyoG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable..is.expanded" value="false" />
+    <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../x-var" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../go-version-laravel/celeritas" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="init-structure" />
+      <working_directory value="$PROJECT_DIR$/../go-version-laravel" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/../go-version-laravel" />
+      <filePath value="$PROJECT_DIR$/../go-version-laravel" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="init-structure" />
+      <working_directory value="$PROJECT_DIR$/../go-version-laravel" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$/../go-version-laravel" />
+      <filePath value="$PROJECT_DIR$/../go-version-laravel" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+</project>

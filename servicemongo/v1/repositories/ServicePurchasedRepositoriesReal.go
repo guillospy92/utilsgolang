@@ -7,20 +7,22 @@ import (
 	"guihub.com/guillospy92/servicemongo/v1/mongo"
 )
 
-const nameCollection = "service_purchased_original"
+const nameCollection = "services_purchased"
 
 // ServicePurchasedDocumentRepository that implements interface ServicePurchasedRepositoryInterface
 type ServicePurchasedDocumentRepository struct{}
 
 // FindServicePurchased find collection in services_purchased by subscriptionID
 // if this service not found a services_purchased return error
-func (s *ServicePurchasedDocumentRepository) FindServicePurchased(subscriptionID string) error {
+func (s *ServicePurchasedDocumentRepository) FindServicePurchased(subscriptionID string) (map[string]interface{}, error) {
+	var a map[string]interface{}
+	
 	filter := bson.M{"subscription_id": subscriptionID}
-	return mongo.ConnectApiMongoGlobal.FindOne(context.Background(), nameCollection, filter).Err()
+	return a, mongo.ConnectApiMongoGlobal.FindOne(context.Background(), nameCollection, filter).Decode(&a)
 }
 
 // SaveServicePurchased save new collection in services_purchased
-func (s *ServicePurchasedDocumentRepository) SaveServicePurchased(service ServicePurchasedOriginal) error {
+func (s *ServicePurchasedDocumentRepository) SaveServicePurchased(service ServicePurchasedMer) error {
 	_, err := mongo.ConnectApiMongoGlobal.InsertOne(context.Background(), nameCollection, service)
 	return err
 }

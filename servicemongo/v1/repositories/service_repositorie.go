@@ -6,6 +6,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"guihub.com/guillospy92/servicemongo/v1/mongo"
+	"log"
+	"time"
 )
 
 // ServiceRepositories struct
@@ -13,11 +15,15 @@ type ServiceRepositories struct{}
 
 // User struct
 type User struct {
-	Id        int64  `bson:"id"`
-	Name      string `bson:"name"`
-	Email     string `bson:"email"`
-	Address   string `bson:"address"`
-	CellPhone int64  `bson:"cellPhone"`
+	ID             int    `json:"id" bson:"id"`
+	Name           string `json:"name" bson:"name"`
+	Email          string `json:"email" bson:"email"`
+	PhonePrefix    string `json:"phone_prefix" bson:"phone_prefix"`
+	Cellphone      string `json:"cellphone" bson:"cellphone"`
+	Address        string `json:"address" bson:"address"`
+	PostalCode     string `json:"postal_code" bson:"postal_code"`
+	IdentityNumber string `json:"identity_number" bson:"identity_number"`
+	IdentityType   string `json:"identity_type" bson:"identity_type"`
 }
 
 // Plan struct
@@ -32,8 +38,26 @@ type Plan struct {
 
 // Payment struct
 type Payment struct {
-	CardID       int64 `bson:"card_id"`
-	Installments int   `bson:"installments"`
+	CreditCard CreditCard `json:"credit_card" bson:"credit_card"`
+	History    []History  `json:"history,omitempty" bson:"history"`
+}
+
+// CreditCard attributes of the credit card.
+type CreditCard struct {
+	ID           int    `json:"id" bson:"id"`
+	Franchise    string `json:"franchise" bson:"franchise"`
+	LastFour     int    `json:"last_four" bson:"last_four"`
+	Installments int    `json:"installments" bson:"installments"`
+	Type         string `json:"type" bson:"type"`
+	CVV          *int   `json:"cvv,omitempty"`
+}
+
+// History attributes of the transaction history.
+type History struct {
+	TransactionID     string    `json:"transaction_id" bson:"transaction_id"`
+	ReferenceCode     string    `json:"reference_code" bson:"reference_code"`
+	TransactionStatus string    `json:"transaction_status" bson:"transaction_status"`
+	TransactionDate   time.Time `json:"transaction_date" bson:"transaction_date"`
 }
 
 // Service struct
@@ -46,8 +70,9 @@ type Service struct {
 	Plan          []Plan   `bson:"plan"`
 }
 
-// ServicePurchased struct
+// ServicePurchased struct deprecated
 type ServicePurchased struct {
+	// ID             string             `bson:"_id"`
 	ServiceID      primitive.ObjectID `bson:"service_id"`
 	CountryCode    string             `bson:"country_code"`
 	CityName       string             `bson:"city_name"`
@@ -60,6 +85,19 @@ type ServicePurchased struct {
 	User           User               `bson:"user"`
 	Plan           Plan               `bson:"plan"`
 	Payment        Payment            `bson:"payment"`
+}
+
+// ServicePurchasedLogs struct repository in the collection logs in documentDB
+type ServicePurchasedLogs struct {
+	UserID            int       `bson:"user_id"`
+	SubscriptionID    string    `bson:"subscription_id"`
+	ServiceID         string    `bson:"service_id"`
+	PlanID            string    `bson:"plan_id"`
+	PlanName          string    `bson:"plan_name"`
+	PlanPrice         float64   `bson:"plan_price"`
+	TransactionType   string    `bson:"transaction_type"`
+	TransactionDate   time.Time `bson:"transaction_date"`
+	TransactionStatus string    `bson:"transaction_status"`
 }
 
 // NewService add new service in mongo
@@ -91,13 +129,12 @@ func NewServicePurchased(s ServicePurchased) (Service, error) {
 
 // SearchServicePurchased search services
 func SearchServicePurchased() (ServicePurchased, error) {
-	var service ServicePurchased
+	var service map[interface{}]interface{}
 
 	filter := bson.D{
-		// {"plan.benefits", bson.D{{"$eq", "free_delivery"}}},
-		{"plan.benefits", "free_delivery, netflix"},
+		{"plan.benefits", "free_delivery"},
 		{"country_code", "co"},
-		{"user.id", 234},
+		{"user.id", 19776},
 		{"status", "active"},
 	}
 
@@ -107,5 +144,42 @@ func SearchServicePurchased() (ServicePurchased, error) {
 		return ServicePurchased{}, err
 	}
 
+	return ServicePurchased{}, err
+}
+
+func GetServiceOriginal(subscriptionID string) (ServicePurchasedOriginal, error) {
+	filter := bson.M{"subscription_id": subscriptionID}
+	var service ServicePurchasedOriginal
+
+	err := mongo.ConnectApiMongoGlobal.FindOne(context.Background(), "services_purchased", filter).Decode(&service)
+
+	if err != nil {
+		log.Println(err)
+		return ServicePurchasedOriginal{}, err
+	}
+
 	return service, err
+}
+
+// SaveLogsServicePurchased saved log all transaction in documentDB
+func SaveLogsServicePurchased(service ServicePurchasedOriginal, transaction string) error {
+	// preparing data logs
+	logs := ServicePurchasedLogs{
+		UserID:            service.User.ID,
+		SubscriptionID:    service.SubscriptionID,
+		ServiceID:         service.ServiceID,
+		PlanID:            service.Plan.ID,
+		PlanName:          service.Plan.Name,
+		PlanPrice:         service.Plan.Price,
+		TransactionType:   transaction,
+		TransactionDate:   time.Now(),
+		TransactionStatus: service.Status,
+	}
+	_, err := mongo.ConnectApiMongoGlobal.InsertOne(context.Background(), "logs", logs)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	return err
 }

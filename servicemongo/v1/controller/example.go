@@ -1,8 +1,8 @@
 package controller
 
 var jsonCreated = `{
-  "subscription_id": "zzz-zzz-zzz",
-  "service_id": "0101",
+  "subscription_id": "zzz-zzz-zzz-ggg-lll",
+  "service_id": "01010101010",
   "type": "prime",
   "country_code": "co",
   "city_code": "br",
@@ -34,13 +34,23 @@ var jsonCreated = `{
 }`
 
 var jsonCharge = `{
-  "subscription_id": "xx-xx-xxx",
+  "subscription_id": "621e4bc855d790e9d6958e37-co-dd0595cf-80dd-41a9-a8ab-93b4b16669af",
   "is_renovated": false,
   "payment": {
-    "card_id": 23433453453,
-    "card_type": "t.c",
-    "last_four": 2345,
-    "installments": 4
+    "credit_card": {
+      "id": 387926,
+      "franchise": "visa",
+      "last_four": 1234,
+      "installments": 1
+    },
+    "history": [
+      {
+        "transaction_id": "eyetyetyter37373676",
+        "transaction_status": "pending_payment",
+        "transaction_date":"2022-01-17T10:57:05-05:00",
+        "reference_code": "string"
+      }
+    ]
   }
 }`
 

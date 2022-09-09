@@ -119,7 +119,7 @@ func (d *documentDB) UpdateOne(
 func NewCreateConnectionDocumentDB(db *ParamConnectionDocumentDB) (DocumentDBAPI, error) {
 	connectURI := getURIConnection(db)
 	fmt.Println(connectURI)
-	connectURI = "mongodb://root:root@localhost:27017"
+	// connectURII := "mongodb://root:root@localhost:27017"
 	clientOptions := options.Client().ApplyURI(connectURI)
 
 	if db.TLS {
@@ -152,7 +152,7 @@ func NewCreateConnectionDocumentDB(db *ParamConnectionDocumentDB) (DocumentDBAPI
 	if err != nil {
 		return nil, err
 	}
-
+	fmt.Println(db.DBName)
 	return &documentDB{
 		context:  ctx,
 		database: client.Database(db.DBName),

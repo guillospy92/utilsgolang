@@ -9,7 +9,7 @@ import (
 
 func AddServicePurchased(response http.ResponseWriter, request *http.Request) {
 	fmt.Println(request.Body)
-	var serviceCreated repositories.ServicePurchasedOriginal
+	var serviceCreated repositories.ServicePurchasedMer
 
 	err := json.Unmarshal([]byte(jsonCreated), &serviceCreated)
 
@@ -31,18 +31,42 @@ func AddServicePurchased(response http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	response.Write([]byte("service created ok"))
+	// find services
+	data, err := service.FindServicePurchased(serviceCreated.SubscriptionID)
+
+	if err != nil {
+		response.WriteHeader(http.StatusInternalServerError)
+		response.Write([]byte(err.Error()))
+		return
+	}
+
+	res, err := json.Marshal(&data)
+
+	if err != nil {
+		response.WriteHeader(http.StatusInternalServerError)
+		response.Write([]byte(err.Error()))
+		return
+	}
+
+	response.Write(res)
 
 }
 
 func ServicePurchasedCharge(response http.ResponseWriter, request *http.Request) {
-	fmt.Println(request.Body)
-	var serviceCreated repositories.ServicePurchasedChargeOriginal
+	var serviceCharge repositories.ServicePurchasedChargeOriginal
 
-	err := json.Unmarshal([]byte(jsonCharge), &serviceCreated)
+	err := json.Unmarshal([]byte(jsonCharge), &serviceCharge)
 
 	if err != nil {
-		fmt.Println("paso por aqiui 22222")
+		response.WriteHeader(http.StatusInternalServerError)
+		response.Write([]byte(err.Error()))
+		return
+	}
+
+	// get service
+	s, err := repositories.GetServiceOriginal(serviceCharge.SubscriptionID)
+
+	if err != nil {
 		response.WriteHeader(http.StatusInternalServerError)
 		response.Write([]byte(err.Error()))
 		return
@@ -50,8 +74,16 @@ func ServicePurchasedCharge(response http.ResponseWriter, request *http.Request)
 
 	service := repositories.ServicePurchasedDocumentRepository{}
 
-	err = service.SaveServiceCharge(serviceCreated)
+	err = service.SaveServiceCharge(serviceCharge)
 
+	if err != nil {
+		fmt.Println("paso por aqiui")
+		response.WriteHeader(http.StatusInternalServerError)
+		response.Write([]byte(err.Error()))
+		return
+	}
+
+	err = repositories.SaveLogsServicePurchased(s, "paid+subscription")
 	if err != nil {
 		fmt.Println("paso por aqiui")
 		response.WriteHeader(http.StatusInternalServerError)
@@ -77,7 +109,7 @@ func ServicePurchasedFind(response http.ResponseWriter, request *http.Request) {
 
 	service := repositories.ServicePurchasedDocumentRepository{}
 
-	err = service.FindServicePurchased(serviceCreated.SubscriptionID)
+	_, err = service.FindServicePurchased(serviceCreated.SubscriptionID)
 
 	if err != nil {
 		fmt.Println("paso por aqiui")

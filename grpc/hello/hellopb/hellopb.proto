@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package hello;
+
+option go_package = "v1/";
+
+message Hello {
+  string first_name = 1;
+  string prefix = 2;
+}
+
+message HelloRequest {
+  Hello hello = 1;
+}
+
+message HelloResponse {
+  string custom_hello = 1;
+}
+
+message HelloManyLanguagesResponse {
+  string hello_language = 1;
+}
+
+message HelloManyLanguagesRequest {
+  Hello hello = 1;
+}
+
+message HelloGodByeRequest {
+  Hello hello = 1;
+}
+
+message HelloGodByeResponse {
+  string goodbye = 1;
+}
+
+
+
+service HelloService {
+  // unary
+  rpc Hello(HelloRequest) returns (HelloResponse);
+
+  //server streaming
+  // service return a greeting in different languages
+  rpc HelloManyLanguages(HelloManyLanguagesRequest) returns (stream HelloManyLanguagesResponse);
+
+  // service client streaming
+  // send many hellos and response with goodbye for all people
+  rpc HelloGoodBye(stream HelloGodByeRequest) returns (HelloGodByeResponse);
+
+  // service bidirectional streaming
+  rpc GoodBye(stream HelloGodByeRequest) returns (stream HelloGodByeResponse);
+}
